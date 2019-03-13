@@ -2,16 +2,19 @@ body {
 	overflow-x: hidden;
 }
 .container {
+	min-width: 450px;
 	width: 1140px;
 }
 .site-header {
 	background-color: #fff;
 }
-.col-md-3 {
+.col-md-3,
+.col-lg-3 {
 	padding: 0;
 }
-.site-header a {
+.site-header > a {
 	text-decoration: none;
+	min-height: 30px;
 	height: 98px;
 }
 .site-logo {
@@ -28,17 +31,30 @@ body {
 	padding-top: 40px;
 }
 .site-navigation a {
+	display: inline-block;
+	vertical-align: middle;
 	font-family: "Arial";
 	text-decoration: none;
 	color: #999999;
 	text-transform: uppercase;
 	font-size: 16px;
 	margin-right: 20px;
+	border-bottom: 2px solid transparent;
+	transition: 0.2s;
+}
+.site-navigation a:hover {
+	color: #24375e;
+	border-color: #24375e;
 }
 a.ru-en {
 	position: relative;
 	margin-left: 14px;
 	color: #24375e;
+	transition: 0.2s;
+}
+a.ru-en:hover {
+	border-color: transparent;
+	font-weight: bold;
 }
 a.ru-en::before {
 	content: "";
@@ -75,7 +91,7 @@ a.ru-en::before {
 }
 .title-info {
 	width: 555px;
-	height: 150px;
+	min-height: 150px;
 	background-color: rgba(34,51,86, 0.8);
 }
 .title-info h2 {
@@ -228,17 +244,20 @@ a.ru-en::before {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }*/
+.all-materials {
+	display: block;
+	text-align: right;
+	margin-bottom: 70px;
+}
 .news a,
 .spec-offers a,
 .developments a {
-	display: block;
-	text-align: right;
+	display: inline-block;
 	font-size: 14px;
 	color: #333;
 	text-decoration: underline;
 	margin-right: 15px;
 	margin-top: -10px;
-	margin-bottom: 70px;
 }
 /*----- FOOTER -----*/
 .container-fluid {
@@ -259,10 +278,14 @@ a.ru-en::before {
 	font-size: 14px;
 }
 .container-fluid li {
-	height: 23px;
+	min-height: 23px;
 }
-.container-fluid li:first-child {
+.container-fluid a {
+	color: #24375e;
+}
+.container-fluid li:first-child a{
 	font-weight: bold;
+	color: #24375e;
 }
 .container-fluid .container {
 	padding: 0;
@@ -341,4 +364,174 @@ a.ru-en::before {
 	display: inline-block;
 	vertical-align: middle;
 	border-bottom: 1px dashed #24375e;
+}
+/*--------------- MEDIA ----------------*/
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 500px) {
+	.title-info {
+		width: 480px;
+	}
+}
+@media (max-width: 575.98px) { 
+	.site-logo {
+		margin-left: 15px;
+	}
+	.site-navigation {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		width: 100px;
+		height: 230px;
+		padding-top: 0;
+		margin-left: 0px;
+	}
+	.site-navigation a {
+		margin-bottom: 5px;
+	}
+	.site-navigation a:last-child {
+		order: -1;
+	}
+	.site-menu {
+		margin-left: 100px;
+	}
+	.news-item-list {
+		margin-left: 14px;
+	}
+	.news > h2 {
+		margin-left: 14px;
+	}
+	.all-materials {
+		margin-bottom: 0;
+		text-align: left;
+	}
+	.news .all-materials {
+		margin-left: 14px;
+	}
+	.developments .all-materials {
+		margin-bottom: 70px;
+	}
+	.site-copyright {
+		text-align: left;
+	}
+	.site-copyright h2 {
+		margin-bottom: 0;
+	}
+	.site-copyright p {
+		margin-left: 10px;
+	}
+	.subscribe {
+		text-align: left;
+		margin-left: 20px;
+	}
+	.social-block,
+	.map-block {
+		text-align: left;
+		margin-left: 20px;
+	}
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	.site-logo {
+		margin;left: 15px;
+	}
+	.site-navigation {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		width: 100px;
+		height: 230px;
+		padding-top: 0;
+	}
+	.site-navigation a {
+		margin-bottom: 5px;
+	}
+	.site-navigation a:last-child {
+		order: -1;
+	}
+	.news-item-list {
+		margin-left: 16px;
+		border-right: 0;
+	}
+	.spec-offers-item-list {
+		border-right: 0;
+	}
+	.news > h2 {
+		margin-left: 16px;
+	}
+	.all-materials {
+		margin-bottom: 0;
+		text-align: center;
+	}
+	.developments .all-materials {
+		margin-bottom: 70px;
+	}
+	.site-copyright,
+	.subscribe,
+	.social-block,
+	.map-block {
+		text-align: center;
+	}
+	.site-copyright h2 {
+		margin-bottom: 0;
+	}
+	.site-copyright p {
+		margin-left: 10px;
+	}
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+	.site-logo {
+		margin-left: 16px;
+	}
+	.site-navigation a{
+		font-size: 13px;
+		margin-right: 15px;
+	}
+	.site-navigation {
+		padding-top: 0px;
+		padding-bottom: 10px;
+	}
+	.news-info,
+	.spec-offers-info,
+	.developments-info {
+		margin-left: 0;
+		margin-top: 10px;
+		width: 100%;
+	}
+	.news > h2,
+	.spec-offers > h2,
+	.developments > h2 {
+		font-size: 20px;
+	}
+	.site-copyright p {
+		width: 150px;
+	}
+	
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+	.site-navigation a{
+		font-size: 13px;
+		margin-right: 15px;
+	}
+	.news-info,
+	.spec-offers-info,
+	.developments-info {
+		margin-left: 0;
+		margin-top: 10px;
+		width: 100%;
+	}
+	.news > h2,
+	.spec-offers > h2,
+	.developments > h2 {
+		font-size: 25px;
+	}
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+	
 }
